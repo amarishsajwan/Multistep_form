@@ -546,3 +546,5 @@ function validateNext3() {
     return true;
   }
 }
+
+console.log("testing");
