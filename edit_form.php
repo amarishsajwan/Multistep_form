@@ -1,11 +1,8 @@
 <?php
-
-      
  include 'db_connect.php';
  $id= $_GET['uid'];
- $sql = "SELECT * FROM users";
+ $sql = "SELECT * FROM `users` WHERE `user_id` =  $id";
  $result = mysqli_query($conn,$sql);
- $sno = 0;
  while($row = mysqli_fetch_assoc($result)){
   $name = $row['name'];
  $username = $row['username'];
@@ -82,7 +79,7 @@
   <div class="mains  mt-5 ">
     <h2 class="text-center mt-1 mb-5">Multistep Form </h2>
 
-    <form id="regForm" action="handle_form.php" method="POST" target="_blank">
+    <form id="regForm" action="handle_edit_form.php?uid=<?php echo $id ?>" method="POST" target="_blank">
 
       <!-- step-1 -->
       <div id="step1" class="step  row g-3">
@@ -171,7 +168,8 @@
 
               <div class="form-check form-check-inline col-md-2">
 
-                <input class="form-check-input" type="radio" name="gender" id="GenderMale" value="Male">
+                <input class="form-check-input" type="radio" name="gender" id="GenderMale" value="Male"
+                  <?php if (isset($gender) && $gender=="Male") echo "checked";?>>
 
 
 
@@ -181,13 +179,15 @@
               </div>
 
               <div class="form-check  form-check-inline col-md-2">
-                <input class="form-check-input" type="radio" name="gender" id="GenderFemale" value="Female">
+                <input class="form-check-input" type="radio" name="gender" id="GenderFemale" value="Female"
+                  <?php if (isset($gender) && $gender=="Female") echo "checked";?>>
                 <label class="form-check-label" for="GenderFemale">
                   Female
                 </label>
               </div>
               <div class="form-check   form-check-inline col-md-2 ">
-                <input class="form-check-input" type="radio" name="gender" id="GenderOther" value="Other">
+                <input class="form-check-input" type="radio" name="gender" id="GenderOther" value="Other"
+                  <?php if (isset($gender) && $gender=="Other") echo "checked";?>>
 
                 <label class="form-check-label" for="GenderOther">
                   Other
@@ -223,8 +223,8 @@
         <div class="col-12">
 
           <div class="form-floating mb-3">
-            <textarea class="form-control" placeholder="Leave a comment here" id="ResidentialAddress" name="RAddress"
-              value="<?php echo $RAddress?>" style="height: 100px"></textarea>
+            <textarea class="form-control" placeholder="Leave a comment here" id="ResidentialAddress"
+              name="ResidentialAddress" style="height: 100px"><?php echo $RAddress ?></textarea>
             <div class="error" id="ResidentialAddressErr"></div>
 
             <label for="ResidentialAddress"> Residential Address*</label>
@@ -239,7 +239,7 @@
           </div>
           <div class="form-floating">
             <textarea class="form-control" placeholder="Leave a comment here" id="PermanentAddress"
-              name="PermanentAddress" value="<?php echo $PAddress?>" style="height: 100px"></textarea>
+              name="PermanentAddress" style="height: 100px"><?php echo $PAddress?></textarea>
             <div class="error" id="PermanentAddressErr"></div>
 
             <label for="PermanentAddress">Permanent Address*</label>

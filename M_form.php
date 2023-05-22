@@ -16,7 +16,6 @@
 
 <body>
   <!-- Submit Modal -->
-  <!-- Modal -->
   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
@@ -188,8 +187,8 @@
         <div class="col-12">
 
           <div class="form-floating mb-3">
-            <textarea class="form-control" placeholder="Leave a comment here" id="ResidentialAddress" name="RAddress"
-              style="height: 100px"></textarea>
+            <textarea class="form-control" placeholder="Leave a comment here" id="ResidentialAddress"
+              name="ResidentialAddress" style="height: 100px"></textarea>
             <div class="error" id="ResidentialAddressErr"></div>
 
             <label for="ResidentialAddress"> Residential Address*</label>

@@ -1,5 +1,5 @@
 let next1 = document.getElementById("next1");
-
+//switch to next form div after checking validation
 next1.addEventListener("click", () => {
   let result1 = validateNext1();
   console.log(result1);
@@ -11,9 +11,6 @@ next1.addEventListener("click", () => {
     document.getElementById("step2").style.display = "block";
   }
 });
-// next1.addEventListener("click", function () {
-
-// });
 
 let prev2 = document.getElementById("prev2");
 prev2.addEventListener("click", function () {
@@ -48,12 +45,7 @@ const submitBtn = document.querySelector("#submit");
 const confirmSubmit = document.getElementById("confirmSubmit");
 const hidden = document.getElementById("addButton");
 submitBtn.addEventListener("click", () => {
-  // let result3 = validateNext3();
-  // console.log("result3", result3);
   if (validateNext3() == true) {
-    // const formData = new FormData(myForm);
-    // const jsonData = JSON.stringify(Object.fromEntries(formData));
-    // formDataInput.value = jsonData;
     let modalTrigger = new bootstrap.Modal(
       document.getElementById("staticBackdrop")
     );
@@ -151,17 +143,7 @@ confirmSubmit.addEventListener("click", () => {
   document.getElementById("regForm").reset();
   location.reload();
 });
-// function submitForm() {
-//   console.log("action");
-//   // Submit the form data
-//
 
-//   submitForm.reset();
-//   let modalTrigger = new bootstrap.Modal(
-//     document.getElementById("staticBackdrop")
-//   );
-//   modalTrigger.hide();
-// }
 //copy residential address to permanent address by ticking check box
 
 const checking = document.getElementById("check");
@@ -174,18 +156,13 @@ checking.addEventListener("click", () => {
     document.getElementById("PermanentAddress").value =
       document.getElementById("ResidentialAddress").value;
   }
-  //  else {
-  //   console.log("unchecked");
-
-  //   document.getElementById("PermanentAddress").value = "";
-  // }
 });
 
 function printError(elemId, hintMsg) {
   document.getElementById(elemId).innerHTML = hintMsg;
   return false;
 }
-
+//validation function
 function validateNext1() {
   // Retrieving the values of form elements
   const name = document.getElementById("InputName").value;
@@ -425,30 +402,8 @@ function validateNext2() {
     stateErr ||
     CountryErr == true
   ) {
-    // console.log("fname", f_nameErr);
-    // console.log("lname", l_nameErr);
-    // console.log("gender", genderErr);
-    // console.log("dob", dobErr);
-    // console.log("phone", telephoneErr);
-    // console.log("phone", telephoneErr);
-    // console.log("Raddress", ResidentialAddressErr);
-    // console.log("Paddress", PermanentAddressErr);
-    // console.log("ZIPCODE", ZipcodeErr);
-    // console.log("STATE", stateErr);
-    // console.log("COUNTRY", CountryErr);
     return false;
   } else {
-    // console.log("fname", f_nameErr);
-    // console.log("lname", l_nameErr);
-    // console.log("gender", genderErr);
-    // console.log("dob", dobErr);
-    // console.log("phone", telephoneErr);
-    // console.log("phone", telephoneErr);
-    // console.log("Raddress", ResidentialAddressErr);
-    // console.log("Paddress", PermanentAddressErr);
-    // console.log("ZIPCODE", ZipcodeErr);
-    // console.log("STATE", stateErr);
-    // console.log("COUNTRY", CountryErr);
     return true;
   }
 }

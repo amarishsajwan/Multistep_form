@@ -63,7 +63,7 @@
       $AccountNo = $row['account_no'];
       $createdDate = $row['account_created_date'];
       $sno=$sno+1 ;
-      echo'<tr data-id="'.$id.'">
+      echo'<tr data-id="'.$id.'" >
         <td>'.$sno.'</td>
         <td>'.$username.'</td>
         <td>'.$email.'</td>
@@ -72,12 +72,16 @@
         <td>'.$gender.'</td>
         <td>'.$dob.'</td>
         <td>'.$PhoneNumber.'</td>
-        <td>'.$PAddress.'""</td>
+        <td>'.$PAddress.'</td>
         <td>'.$BankName.'</td>
         <td>'.$BranchName.'</td>
         <td>'.$AccountHolderName.'</td>
         <td>'.$createdDate.'</td>
-        <td>
+        <td style="
+    display: flex;
+     align-items: center;
+    padding-bottom: 17px;
+">
           <a href="edit_form.php?uid='.$id.'" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
               fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
               <path
@@ -147,22 +151,20 @@
   //Delete a particular Row Data 
   function deleteRow(button) {
     if (confirm("Are you sure you want to delete this row?")) {
-      let row = button.parentNode.parentNode; // get the parent (tr) of the parent (td) of the button
+      let row = button.parentNode.parentNode;
       let id = row.getAttribute("data-id");
 
-      // create form to submit data to PHP script
+
       let form = document.createElement("form");
       form.method = "post";
       form.action = "delete.php";
 
-      // add field to form
       let idField = document.createElement("input");
       idField.type = "hidden";
       idField.name = "id";
       idField.value = id;
       form.appendChild(idField);
 
-      // submit form and reload page
       document.body.appendChild(form);
       form.submit();
     }

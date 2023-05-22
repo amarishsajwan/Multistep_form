@@ -1,7 +1,8 @@
 <?php
 if($_SERVER["REQUEST_METHOD"] == "POST")
-{
-    include 'db_connect.php';
+{include 'db_connect.php';
+  
+  $id= $_GET['uid'];
     $name = $_POST['InputName'];
     $username = $_POST['InputUserName'];
     $email = $_POST['InputEmail'];
@@ -31,8 +32,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     
       if($password == $cpassword){
       $hash = password_hash($password,PASSWORD_DEFAULT);
-      $sql ="INSERT INTO `users` (`name`, `username`, `email`, `password`, `first_name`, `last_name`, `gender`, `dob`, `phone_no`, `r_address`, `p_address`, `zip_code`, `state`, `country`, `bank_Name`, `branch_name`, `account_holder_name`, `account_no`, `account_created_date`) VALUES (' $name', '$username', '$email', '$hash','$f_name', '$l_name', '$gender','$formattedDob',' $PhoneNumber', '$RAddress', '$PAddress', $Zipcode, '$State', '$Country', '$BankName ', '$BranchName', '$AccountHolderName', $AccountNo, '$formattedDate')";
-      echo $sql;
+      $sql ="UPDATE `users` SET `name` = '$name', `username` = '$username', `email` = '$email ', `first_name` = '$f_name', `last_name` = '$l_name', `gender` = '$gender', `dob` = '$formattedDob', `phone_no` = '$PhoneNumber', `r_address` = '$RAddress', `p_address` = '$PAddress', `zip_code` = '$Zipcode', `state` = '$State', `country` = '$Country', `bank_Name` = ' $BankName', `branch_name` = '$BranchName', `account_holder_name` = '$AccountHolderName', `account_no` = '$AccountNo', `account_created_date` = '$formattedDate' WHERE `users`.`user_id` = $id";
       $result = mysqli_query($conn , $sql);
 
       header("Location: /multistep_form/user_data.php");
@@ -40,7 +40,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
       }
   
      else{
-       header("Location: /multistep_form/M_form.php?signupsuccess=false");
+       header("Location: /multistep_form/edit_form.js?uid=$id&&signupsuccess=false");
       }
     }
 

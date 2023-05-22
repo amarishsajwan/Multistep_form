@@ -1,5 +1,5 @@
 let next1 = document.getElementById("next1");
-
+//switch to next form div after checking validation
 next1.addEventListener("click", () => {
   let result1 = validateNext1();
   console.log(result1);
@@ -11,9 +11,6 @@ next1.addEventListener("click", () => {
     document.getElementById("step2").style.display = "block";
   }
 });
-// next1.addEventListener("click", function () {
-
-// });
 
 let prev2 = document.getElementById("prev2");
 prev2.addEventListener("click", function () {
@@ -48,12 +45,8 @@ const submitBtn = document.querySelector("#submit");
 const confirmSubmit = document.getElementById("confirmSubmit");
 const hidden = document.getElementById("addButton");
 submitBtn.addEventListener("click", () => {
-  // let result3 = validateNext3();
-  // console.log("result3", result3);
   if (validateNext3() == true) {
-    // const formData = new FormData(myForm);
-    // const jsonData = JSON.stringify(Object.fromEntries(formData));
-    // formDataInput.value = jsonData;
+    //trigger confirmation modal
     let modalTrigger = new bootstrap.Modal(
       document.getElementById("staticBackdrop")
     );
@@ -101,44 +94,45 @@ submitBtn.addEventListener("click", () => {
     const formDataList = document.getElementById("formDataList");
     formDataList.innerHTML = "";
     formDataList.innerHTML +=
-      "<li><strong>Name:</strong> " + InputName + "</li>";
+      "</div><strong>Name:</strong> " + InputName + "</div>";
     formDataList.innerHTML +=
-      "<li><strong>User Name:</strong> " + InputUserName + "</li>";
+      "<div><strong>User Name:</strong> " + InputUserName + "</div>";
     formDataList.innerHTML +=
-      "<li><strong>Email:</strong> " + InputEmail + "</li>";
+      "<div><strong>Email:</strong> " + InputEmail + "</div>";
     formDataList.innerHTML +=
-      "<li><strong>Firt Name:</strong> " + f_name + "</li>";
+      "<div><strong>Firt Name:</strong> " + f_name + "</div>";
     formDataList.innerHTML +=
-      "<li><strong>Last Name:</strong> " + l_name + "</li>";
+      "<div><strong>Last Name:</strong> " + l_name + "</div>";
     formDataList.innerHTML +=
-      "<li><strong>Gender:</strong> " + Inputgender + "</li>";
+      "<div><strong>Gender:</strong> " + Inputgender + "</div>";
     formDataList.innerHTML +=
-      "<li><strong>Date of Birth:</strong> " + dob + "</li>";
+      "<div><strong>Date of Birth:</strong> " + dob + "</div>";
     formDataList.innerHTML +=
-      "<li><strong>PhoneNumber:</strong> " + PhoneNumber + "</li>";
+      "<div><strong>PhoneNumber:</strong> " + PhoneNumber + "</div>";
     formDataList.innerHTML +=
-      "<li><strong>Residential Address:</strong> " +
+      "<div><strong>Residential Address:</strong> " +
       ResidentialAddress +
-      "</li>";
+      "</div>";
     formDataList.innerHTML +=
-      "<li><strong>PermanentAddress:</strong> " + PermanentAddress + "</li>";
+      "<div><strong>PermanentAddress:</strong> " + PermanentAddress + "</div>";
     formDataList.innerHTML +=
-      "<li><strong>Zipcode:</strong> " + Zipcode + "</li>";
-    formDataList.innerHTML += "<li><strong>State:</strong> " + State + "</li>";
+      "<div><strong>Zipcode:</strong> " + Zipcode + "</div>";
     formDataList.innerHTML +=
-      "<li><strong>Country:</strong> " + Country + "</li>";
+      "<div><strong>State:</strong> " + State + "</div>";
     formDataList.innerHTML +=
-      "<li><strong>Bank Name:</strong> " + BankName + "</li>";
+      "<div><strong>Country:</strong> " + Country + "</div>";
     formDataList.innerHTML +=
-      "<li><strong>Branch Name:</strong> " + BranchName + "</li>";
+      "<div><strong>Bank Name:</strong> " + BankName + "</div>";
     formDataList.innerHTML +=
-      "<li><strong>Account Holder Name:</strong> " +
+      "<div><strong>Branch Name:</strong> " + BranchName + "</div>";
+    formDataList.innerHTML +=
+      "<div><strong>Account Holder Name:</strong> " +
       AccountHolderName +
-      "</li>";
+      "</div>";
     formDataList.innerHTML +=
-      "<li><strong>Account Created Date:</strong> " +
+      "<div><strong>Account Created Date:</strong> " +
       AccountCreatedDate +
-      "</li>";
+      "</div>";
     modalTrigger.show();
   } else {
     return false;
@@ -150,21 +144,11 @@ confirmSubmit.addEventListener("click", () => {
   document.getElementById("regForm").reset();
   location.reload();
 });
-// function submitForm() {
-//   console.log("action");
-//   // Submit the form data
-//
 
-//   submitForm.reset();
-//   let modalTrigger = new bootstrap.Modal(
-//     document.getElementById("staticBackdrop")
-//   );
-//   modalTrigger.hide();
-// }
 //copy residential address to permanent address by ticking check box
 
 const checking = document.getElementById("check");
-
+console.log("p_address", document.getElementById("PermanentAddress").value);
 checking.addEventListener("click", () => {
   let item = document.getElementById("check").checked;
   if (item) {
@@ -173,18 +157,13 @@ checking.addEventListener("click", () => {
     document.getElementById("PermanentAddress").value =
       document.getElementById("ResidentialAddress").value;
   }
-  //  else {
-  //   console.log("unchecked");
-
-  //   document.getElementById("PermanentAddress").value = "";
-  // }
 });
 
 function printError(elemId, hintMsg) {
   document.getElementById(elemId).innerHTML = hintMsg;
   return false;
 }
-
+//validation function
 function validateNext1() {
   // Retrieving the values of form elements
   const name = document.getElementById("InputName").value;
@@ -424,30 +403,8 @@ function validateNext2() {
     stateErr ||
     CountryErr == true
   ) {
-    // console.log("fname", f_nameErr);
-    // console.log("lname", l_nameErr);
-    // console.log("gender", genderErr);
-    // console.log("dob", dobErr);
-    // console.log("phone", telephoneErr);
-    // console.log("phone", telephoneErr);
-    // console.log("Raddress", ResidentialAddressErr);
-    // console.log("Paddress", PermanentAddressErr);
-    // console.log("ZIPCODE", ZipcodeErr);
-    // console.log("STATE", stateErr);
-    // console.log("COUNTRY", CountryErr);
     return false;
   } else {
-    // console.log("fname", f_nameErr);
-    // console.log("lname", l_nameErr);
-    // console.log("gender", genderErr);
-    // console.log("dob", dobErr);
-    // console.log("phone", telephoneErr);
-    // console.log("phone", telephoneErr);
-    // console.log("Raddress", ResidentialAddressErr);
-    // console.log("Paddress", PermanentAddressErr);
-    // console.log("ZIPCODE", ZipcodeErr);
-    // console.log("STATE", stateErr);
-    // console.log("COUNTRY", CountryErr);
     return true;
   }
 }
@@ -546,5 +503,3 @@ function validateNext3() {
     return true;
   }
 }
-
-console.log("testing");
