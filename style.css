@@ -1,0 +1,21 @@
+.mains {
+  /* border: 1px solid #3a3aec; */
+  border-radius: 10px;
+  width: 40rem;
+  padding: 50px;
+  margin: auto;
+}
+.reg-form {
+  margin: 70px;
+}
+/* .step {
+  display: none;
+} */
+.mains {
+  background: linear-gradient(to right, #00aaff, #00ff6c);
+  box-shadow: 1px 3px 3px 3px rgb(165, 164, 164);
+}
+.error {
+  color: red;
+  font-weight: 500;
+}
